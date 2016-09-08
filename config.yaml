@@ -1,0 +1,15 @@
+region: <lambda_region>
+
+function_name: <lambda_fucntion_name>
+handler: service.handler
+role: <lambda_role>
+description: search naver shop code by key word
+
+# if access key and secret are left blank, boto will use the credentials
+# defined in the [default] section of ~/.aws/credentials.
+aws_access_key_id: <aws_access_key>
+aws_secret_access_key: <aws_secret_key>
+
+# dist_directory: dist
+timeout: 300
+memory_size: 128
