@@ -32,6 +32,27 @@ pip install -r requirements.txt
 ### Message Flow ###
 ![](https://docs.google.com/drawings/d/1Izfq5YqPr7txhh106aMk5wUpz4mQ7FIhgoo6Q6PgDvM/pub?w=1231&h=843)
 
+
+### SET "AWS API Gateway" Method Execution ###
+**Reference**: [https://kennbrodhagen.net/2016/04/02/how-to-return-302-using-api-gateway-lambda/](https://kennbrodhagen.net/2016/04/02/how-to-return-302-using-api-gateway-lambda/)
+
+1. Create GET method
+2. Modify "Method Request"
+ - Add "URL Query String parameters"
+3. Modify "Method Response"
+![](https://kennbrodhagen.net/2016/04/02/how-to-return-302-using-api-gateway-lambda/method-response.jpg)
+ - Delete the old 200 status (already exist)
+ - Add a new response 302
+ - Add the Location header
+4. Modify "Integration Response"
+![](https://kennbrodhagen.net/2016/04/02/how-to-return-302-using-api-gateway-lambda/integration-response.jpg)
+ - Delete the old 200 status (already exist)
+ - Add a new response 302
+ - Set the mapping value (should be "integration.response.body.location")
+ - Save mapping value
+ - Save status
+
+
 ### Configuration ###
 - config.yaml: python-lambda utility configuration file
 	- region: lambda fucntion region
